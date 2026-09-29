@@ -1,0 +1,411 @@
+[gd_scene load_steps=31 format=3 uid="uid://dxy3c74ganigq"]
+
+[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://bg85jlnb46pg4" path="res://scenes/poker_game_processing.tscn" id="2_2l77h"]
+[ext_resource type="AudioStream" uid="uid://7ipr0k4ntr0b" path="res://assets/audio/sfx/cardflick1.mp3" id="3_nqdth"]
+[ext_resource type="PackedScene" uid="uid://bife0eoo2o5kg" path="res://scenes/card.tscn" id="4_0rdsr"]
+[ext_resource type="AudioStream" uid="uid://cn1k74hp4to8h" path="res://assets/audio/sfx/cardflick2.mp3" id="4_o6v7o"]
+[ext_resource type="AudioStream" uid="uid://g0qe8kl2rcfh" path="res://assets/audio/sfx/cardflick3.mp3" id="5_wjob3"]
+[ext_resource type="AudioStream" uid="uid://dwaog7ef452lp" path="res://assets/audio/music/happy-jazz-music-casino-poker-black-jack-roulette-background-intro-269848.mp3" id="5_ygxny"]
+[ext_resource type="Script" path="res://scripts/background_music.gd" id="6_wi4c7"]
+[ext_resource type="Texture2D" uid="uid://bbro41d5q8opj" path="res://assets/images/backgroundNew.png" id="7_6de02"]
+[ext_resource type="PackedScene" uid="uid://bg57jheueqamj" path="res://scenes/bet_slider.tscn" id="7_wi4c7"]
+[ext_resource type="Texture2D" uid="uid://d1jwkyuw383yi" path="res://assets/images/chipPiles/playerMinimum.png" id="8_5wboo"]
+[ext_resource type="Texture2D" uid="uid://cwf4fk07i1gew" path="res://assets/images/menuIcon.png" id="8_70vka"]
+[ext_resource type="Script" path="res://scripts/menuButton.gd" id="9_2l77h"]
+[ext_resource type="Texture2D" uid="uid://wyvr6d2lc0jd" path="res://assets/images/chipPiles/AIMinimum.png" id="9_6de02"]
+[ext_resource type="Texture2D" uid="uid://dauiqhwc176j7" path="res://assets/images/chipPiles/playerVerySmall.png" id="10_cybgu"]
+[ext_resource type="Texture2D" uid="uid://be7lrfdxdhsya" path="res://assets/images/chipPiles/playerSmall.png" id="11_wdxbp"]
+[ext_resource type="Texture2D" uid="uid://d1yiet0sxm7bs" path="res://assets/images/chipPiles/playerMedium.png" id="12_on6n6"]
+[ext_resource type="Texture2D" uid="uid://bkanbqdhhaoib" path="res://assets/images/chipPiles/playerFull.png" id="13_x3ega"]
+[ext_resource type="Texture2D" uid="uid://ixlyoapx5dfm" path="res://assets/images/chipPiles/AIVerySmall.png" id="14_dcudo"]
+[ext_resource type="Texture2D" uid="uid://3ts0sjn424lw" path="res://assets/images/chipPiles/AISmall.png" id="15_307no"]
+[ext_resource type="Texture2D" uid="uid://dj4c3ht7voexa" path="res://assets/images/chipPiles/AIMedium.png" id="16_rr87q"]
+[ext_resource type="Texture2D" uid="uid://bt54liq6gl3ku" path="res://assets/images/chipPiles/AIFull.png" id="17_dp0eu"]
+
+[sub_resource type="Animation" id="Animation_nqdth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.33, 0.326)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../BackgroundStuff/soundFx:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_nqdth")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../BackgroundStuff/soundFx:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2l77h"]
+resource_name = "firstDeal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card1:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00232568, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.326), Vector2(1, 0.988)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.335659),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755), Vector2(1338.45, 1336.18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Card2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.402326),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755), Vector2(1628.74, 1336.18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Card2:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0666667, 0.397674),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.326), Vector2(1, 0.988)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Card3:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.435659),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755), Vector2(1916.88, 1336.18)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Card3:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.431008),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.326), Vector2(1, 0.988)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../BackgroundStuff/soundFx:stream")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_nqdth"), ExtResource("3_nqdth"), ExtResource("4_o6v7o"), ExtResource("5_wjob3"), ExtResource("3_nqdth")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../BackgroundStuff/soundFx:playing")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.00697704, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_o6v7o"]
+resource_name = "secondDeal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card4:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.335659),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755), Vector2(2207.24, 1336.18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card4:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.331008),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.326), Vector2(1, 0.988)]
+}
+
+[sub_resource type="Animation" id="Animation_wjob3"]
+resource_name = "thirdDeal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card5:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.335659),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1754.91, 644.755), Vector2(2495.64, 1336.18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card5:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.331008),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.326), Vector2(1, 0.988)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cypo"]
+_data = {
+&"RESET": SubResource("Animation_nqdth"),
+&"firstDeal": SubResource("Animation_2l77h"),
+&"secondDeal": SubResource("Animation_o6v7o"),
+&"thirdDeal": SubResource("Animation_wjob3")
+}
+
+[sub_resource type="Animation" id="Animation_4e2rb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("playerPile:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_5wboo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AIPile:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_6de02")]
+}
+
+[sub_resource type="Animation" id="Animation_urnot"]
+resource_name = "pile"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("playerPile:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("8_5wboo"), ExtResource("10_cybgu"), ExtResource("11_wdxbp"), ExtResource("12_on6n6"), ExtResource("13_x3ega")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AIPile:texture")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("9_6de02"), ExtResource("14_dcudo"), ExtResource("15_307no"), ExtResource("16_rr87q"), ExtResource("17_dp0eu")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vdpn"]
+_data = {
+&"RESET": SubResource("Animation_4e2rb"),
+&"pile": SubResource("Animation_urnot")
+}
+
+[node name="main_game" type="Node2D"]
+script = ExtResource("1_0rdsr")
+
+[node name="PokerGameProcessing" parent="." instance=ExtResource("2_2l77h")]
+unique_name_in_owner = true
+
+[node name="Table Cards" type="Node" parent="PokerGameProcessing"]
+
+[node name="Card1" parent="PokerGameProcessing/Table Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(1754.91, 644.755)
+scale = Vector2(0.33, 0.326)
+
+[node name="Card2" parent="PokerGameProcessing/Table Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(1628.74, 1336.18)
+scale = Vector2(1, 0.988)
+
+[node name="Card3" parent="PokerGameProcessing/Table Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(1916.88, 1336.18)
+scale = Vector2(1, 0.988)
+
+[node name="Card4" parent="PokerGameProcessing/Table Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(1754.91, 644.755)
+scale = Vector2(0.33, 0.326)
+
+[node name="Card5" parent="PokerGameProcessing/Table Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(1754.91, 644.755)
+scale = Vector2(0.33, 0.326)
+
+[node name="Hand Cards" type="Node" parent="PokerGameProcessing"]
+
+[node name="handCard1" parent="PokerGameProcessing/Hand Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(3054.47, 1956.79)
+scale = Vector2(0.90332, 0.90332)
+
+[node name="handCard2" parent="PokerGameProcessing/Hand Cards" instance=ExtResource("4_0rdsr")]
+position = Vector2(2777.63, 1956.79)
+scale = Vector2(0.90332, 0.90332)
+
+[node name="startTimer" type="Timer" parent="PokerGameProcessing"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PokerGameProcessing"]
+root_node = NodePath("../Table Cards")
+libraries = {
+&"": SubResource("AnimationLibrary_5cypo")
+}
+
+[node name="AIPause" type="Timer" parent="PokerGameProcessing"]
+one_shot = true
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="background" type="Sprite2D" parent="Sprites"]
+position = Vector2(1920, 1080)
+texture = ExtResource("7_6de02")
+
+[node name="playerPile" type="Sprite2D" parent="Sprites"]
+z_index = 1
+position = Vector2(1920, 1080)
+texture = ExtResource("8_5wboo")
+
+[node name="AIPile" type="Sprite2D" parent="Sprites"]
+position = Vector2(1920, 1080)
+texture = ExtResource("9_6de02")
+region_rect = Rect2(-12, 13, 757, 928)
+
+[node name="IncreasingPilesAnimation" type="AnimationPlayer" parent="Sprites"]
+libraries = {
+&"": SubResource("AnimationLibrary_6vdpn")
+}
+
+[node name="BackgroundStuff" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="BackgroundStuff"]
+stream = ExtResource("5_ygxny")
+autoplay = true
+max_distance = 100000.0
+bus = &"BackgroundMusic"
+script = ExtResource("6_wi4c7")
+
+[node name="soundFx" type="AudioStreamPlayer2D" parent="BackgroundStuff"]
+stream = ExtResource("3_nqdth")
+volume_db = 3.036
+max_distance = 1e+07
+bus = &"QuiteEffects"
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="betSlider" parent="GUI" node_paths=PackedStringArray("poker_game_processing") instance=ExtResource("7_wi4c7")]
+offset_top = 1607.0
+offset_bottom = 2180.0
+value = 50.0
+poker_game_processing = NodePath("../../PokerGameProcessing")
+
+[node name="MenuButton" type="Button" parent="GUI"]
+offset_left = 35.0
+offset_top = 64.0
+offset_right = 168.0
+offset_bottom = 197.0
+icon = ExtResource("8_70vka")
+flat = true
+script = ExtResource("9_2l77h")
+
+[connection signal="timeout" from="PokerGameProcessing/startTimer" to="PokerGameProcessing" method="timerCalled"]
+[connection signal="timeout" from="PokerGameProcessing/AIPause" to="PokerGameProcessing" method="_on_ai_pause_timeout"]
+[connection signal="finished" from="BackgroundStuff/BackgroundMusic" to="BackgroundStuff/BackgroundMusic" method="_on_finished"]
+[connection signal="mouse_entered" from="GUI/MenuButton" to="GUI/MenuButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GUI/MenuButton" to="GUI/MenuButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]

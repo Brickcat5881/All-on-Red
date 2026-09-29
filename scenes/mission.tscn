@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmsbiyi48jcs3"]
+
+[ext_resource type="Script" uid="uid://b6th231jjwci3" path="res://scripts/mission.gd" id="1_v3nvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wgix"]
+bg_color = Color(0.548963, 0.548963, 0.548962, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b56yx"]
+bg_color = Color(0.772549, 0.266667, 0.207843, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3nvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cv0tx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mvd2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksxw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mh1hw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0klfc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7uqar"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lwecb"]
+load_path = "res://.godot/imported/chip.png-b1b4b2c770eac714143ca13e17f77daf.ctex"
+
+[node name="MissionText" type="Label"]
+offset_left = 2352.0
+offset_top = 1062.0
+offset_right = 3057.0
+offset_bottom = 1283.0
+theme_override_font_sizes/font_size = 60
+text = "Example Mission INSERT"
+autowrap_mode = 2
+script = ExtResource("1_v3nvf")
+
+[node name="ProgressBar1" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = 174.0
+offset_right = 828.0
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/background = SubResource("StyleBoxFlat_2wgix")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b56yx")
+
+[node name="RewardLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 146.5
+offset_right = 946.0
+offset_bottom = 234.5
+theme_override_font_sizes/font_size = 60
+text = "100"
+horizontal_alignment = 2
+
+[node name="RewardButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 136.0
+offset_right = 1310.0
+offset_bottom = 485.0
+scale = Vector2(0.327315, 0.327315)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v3nvf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cv0tx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0mvd2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ksxw2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mh1hw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0klfc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7uqar")
+icon = SubResource("CompressedTexture2D_lwecb")
+flat = true
+
+[connection signal="mouse_entered" from="RewardButton" to="." method="_on_reward_button_mouse_entered"]
+[connection signal="mouse_exited" from="RewardButton" to="." method="_on_reward_button_mouse_exited"]
+[connection signal="pressed" from="RewardButton" to="." method="_on_reward_button_pressed"]

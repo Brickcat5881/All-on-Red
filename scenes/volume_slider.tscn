@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxwaibbfahyca"]
+
+[ext_resource type="PackedScene" uid="uid://bg57jheueqamj" path="res://scenes/bet_slider.tscn" id="1_ynsfn"]
+[ext_resource type="Script" uid="uid://bkdfsxww23jkf" path="res://scripts/volume_slider.gd" id="2_1snrh"]
+[ext_resource type="Texture2D" uid="uid://bnmfrmb07o5st" path="res://assets/images/volumeSliderBox.png" id="3_4v2uo"]
+[ext_resource type="Texture2D" uid="uid://dje1gn2vkqwh3" path="res://assets/images/volumeSliderHighlight.png" id="4_ggm58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1snrh"]
+bg_color = Color(5.77569e-07, 0.716442, 0.393476, 1)
+
+[node name="volumeSlider" instance=ExtResource("1_ynsfn")]
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1snrh")
+script = ExtResource("2_1snrh")
+
+[node name="VolumeSliderBox" type="Sprite2D" parent="." index="2"]
+z_index = -1
+position = Vector2(101, 289)
+scale = Vector2(0.585, 0.49)
+texture = ExtResource("3_4v2uo")
+
+[node name="VolumeSliderHighlight" type="Sprite2D" parent="." index="3"]
+z_index = -1
+position = Vector2(14, 515)
+rotation = 0.00129982
+scale = Vector2(0.564, 1e-05)
+texture = ExtResource("4_ggm58")
+centered = false

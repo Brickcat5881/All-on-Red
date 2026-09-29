@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://3o5852s0exdv"]
+
+[ext_resource type="AudioStream" uid="uid://beblbkqv1nbqr" path="res://assets/audio/music/casino-164235.mp3" id="1_172es"]
+
+[node name="menuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_172es")
+autoplay = true
+max_distance = 34105.0
+bus = &"BackgroundMusic"
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

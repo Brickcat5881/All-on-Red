@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.env
+.env.*
+
+# Python ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python

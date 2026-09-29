@@ -1,0 +1,236 @@
+[gd_scene load_steps=21 format=3 uid="uid://bg85jlnb46pg4"]
+
+[ext_resource type="Script" path="res://scripts/poker_game_processing.py" id="1_pylwq"]
+[ext_resource type="Script" path="res://scripts/choice_ui.gd" id="2_56sng"]
+[ext_resource type="Texture2D" uid="uid://bp7blp7mhw52s" path="res://assets/images/Game Buttons/checkNotClicked.PNG" id="2_gutyx"]
+[ext_resource type="Texture2D" uid="uid://c4uysm6auw4fy" path="res://assets/images/Game Buttons/callNotClicked.PNG" id="2_klrqi"]
+[ext_resource type="Texture2D" uid="uid://d2h7hy70ktihj" path="res://assets/images/NewGameButtonNotPressed.png" id="2_lwecb"]
+[ext_resource type="Texture2D" uid="uid://b2g1vn04vnsv6" path="res://assets/images/Game Buttons/foldNotClicked.PNG" id="2_rp8e1"]
+[ext_resource type="Script" uid="uid://boflpkrldxj8w" path="res://scripts/new_game_button.gd" id="3_283jw"]
+[ext_resource type="Texture2D" uid="uid://dsx4cyb7jcot1" path="res://assets/images/Game Buttons/leftNotClicked.png" id="4_1vb7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0hds"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtkph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0u3r4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkdqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ma26r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmb57"]
+
+[sub_resource type="Theme" id="Theme_pylwq"]
+default_font_size = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56sng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o57oh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwecb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_283jw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lwecb"]
+load_path = "res://.godot/imported/chip.png-b1b4b2c770eac714143ca13e17f77daf.ctex"
+
+[node name="PokerGameProcessing" type="Node"]
+script = ExtResource("1_pylwq")
+chips = 0
+AIChips = 1000
+playerPot = 0
+AIPot = 0
+save_path = "user://save_data.dat"
+turn = 0
+last_aggressor = "none"
+round = 0
+gameIteration = 0
+smallBlind = 50
+bigBlind = 100
+skipAI = true
+
+[node name="newGameButton" type="Button" parent="."]
+z_index = 2
+offset_left = 1686.0
+offset_top = 1766.0
+offset_right = 2078.0
+offset_bottom = 1917.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n0hds")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gtkph")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0u3r4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nkdqh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ma26r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmb57")
+flat = true
+script = ExtResource("3_283jw")
+
+[node name="chipLabel" type="Label" parent="."]
+z_index = 1
+offset_left = 251.0
+offset_top = 90.0
+offset_right = 638.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 2
+
+[node name="ChoiceUI" type="Node" parent="."]
+script = ExtResource("2_56sng")
+
+[node name="FoldButton" type="Button" parent="ChoiceUI"]
+z_index = 1
+offset_left = 3353.0
+offset_top = 1925.0
+offset_right = 4072.0
+offset_bottom = 2143.0
+theme = SubResource("Theme_pylwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_56sng")
+icon = ExtResource("2_rp8e1")
+flat = true
+
+[node name="CheckButton" type="Button" parent="ChoiceUI"]
+z_index = 1
+offset_left = 3353.0
+offset_top = 1580.0
+offset_right = 4072.0
+offset_bottom = 1798.0
+theme = SubResource("Theme_pylwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o57oh")
+icon = ExtResource("2_gutyx")
+flat = true
+
+[node name="BetButton" type="Button" parent="ChoiceUI"]
+z_index = 2
+offset_left = 19.0
+offset_top = 1404.0
+offset_right = 466.0
+offset_bottom = 1567.0
+theme = SubResource("Theme_pylwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwecb")
+icon = ExtResource("4_1vb7k")
+flat = true
+
+[node name="CallButton" type="Button" parent="ChoiceUI"]
+z_index = 1
+offset_left = 3353.0
+offset_top = 1753.0
+offset_right = 4072.0
+offset_bottom = 1971.0
+theme = SubResource("Theme_pylwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_283jw")
+icon = ExtResource("2_klrqi")
+flat = true
+
+[node name="ButtonClicks" type="AudioStreamPlayer2D" parent="ChoiceUI"]
+max_distance = 64360.0
+bus = &"QuiteEffects"
+
+[node name="playerPot" type="Label" parent="."]
+z_index = 1
+offset_left = 979.0
+offset_top = 1157.0
+offset_right = 1584.0
+offset_bottom = 1299.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="AIPot" type="Label" parent="."]
+z_index = 1
+offset_left = 2735.0
+offset_top = 1199.0
+offset_right = 3340.0
+offset_bottom = 1341.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="AIMovesLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = 1738.0
+offset_top = 952.0
+offset_right = 2559.0
+offset_bottom = 1121.0
+theme_override_font_sizes/font_size = 60
+text = "AI PLAYED: "
+
+[node name="PokerSFX" type="AudioStreamPlayer2D" parent="."]
+max_distance = 1e+06
+bus = &"QuiteEffects"
+
+[node name="Popup" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 1397.0
+offset_top = 473.0
+offset_right = 2420.0
+offset_bottom = 900.0
+theme_override_font_sizes/font_size = 240
+
+[node name="AIMove" type="Label" parent="."]
+z_index = 1
+offset_left = 3271.0
+offset_top = 702.0
+offset_right = 3871.0
+offset_bottom = 897.0
+rotation = 0.767945
+theme_override_font_sizes/font_size = 60
+text = "Called"
+
+[node name="cheatOptions" type="OptionButton" parent="."]
+z_index = 1
+offset_left = 3221.0
+offset_top = 35.0
+offset_right = 3830.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 60
+item_count = 4
+popup/item_0/text = "+100 Chips"
+popup/item_0/id = 0
+popup/item_1/text = "+200 Chips"
+popup/item_1/id = 1
+popup/item_2/text = "+500 Chips"
+popup/item_2/id = 2
+popup/item_3/text = "+1000 Chips"
+popup/item_3/id = 3
+
+[node name="cheatButton" type="Button" parent="."]
+z_index = 1
+offset_left = 3085.0
+offset_top = 39.0
+offset_right = 3201.0
+offset_bottom = 156.0
+icon = SubResource("CompressedTexture2D_lwecb")
+flat = true
+expand_icon = true
+
+[node name="NewGameTexture" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = 1
+offset_right = 3840.0
+offset_bottom = 2160.0
+mouse_filter = 2
+texture = ExtResource("2_lwecb")
+
+[connection signal="mouse_entered" from="newGameButton" to="newGameButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="newGameButton" to="newGameButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="newGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="newGameButton" to="newGameButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="ChoiceUI/FoldButton" to="ChoiceUI" method="_on_fold_button_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceUI/FoldButton" to="ChoiceUI" method="_on_fold_button_mouse_exited"]
+[connection signal="pressed" from="ChoiceUI/FoldButton" to="." method="_on_fold_button_pressed"]
+[connection signal="pressed" from="ChoiceUI/FoldButton" to="ChoiceUI" method="_on_fold_button_pressed"]
+[connection signal="mouse_entered" from="ChoiceUI/CheckButton" to="ChoiceUI" method="_on_check_button_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceUI/CheckButton" to="ChoiceUI" method="_on_check_button_mouse_exited"]
+[connection signal="pressed" from="ChoiceUI/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="pressed" from="ChoiceUI/CheckButton" to="ChoiceUI" method="_on_check_button_pressed"]
+[connection signal="mouse_entered" from="ChoiceUI/BetButton" to="ChoiceUI" method="_on_bet_button_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceUI/BetButton" to="ChoiceUI" method="_on_bet_button_mouse_exited"]
+[connection signal="pressed" from="ChoiceUI/BetButton" to="." method="_on_bet_button_pressed"]
+[connection signal="pressed" from="ChoiceUI/BetButton" to="ChoiceUI" method="_on_bet_button_pressed"]
+[connection signal="mouse_entered" from="ChoiceUI/CallButton" to="ChoiceUI" method="_on_call_button_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceUI/CallButton" to="ChoiceUI" method="_on_call_button_mouse_exited"]
+[connection signal="pressed" from="ChoiceUI/CallButton" to="." method="_on_call_button_pressed"]
+[connection signal="pressed" from="ChoiceUI/CallButton" to="ChoiceUI" method="_on_call_button_pressed"]
+[connection signal="pressed" from="cheatButton" to="." method="_on_cheat_button_pressed"]
